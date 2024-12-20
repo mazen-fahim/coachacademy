@@ -1,4 +1,4 @@
-# Topics covered in this training
+# Topics
 
 1. STLs I (Vector & Dequeue & Stack & Queue)
 2. STLs II (Priority Queue & Map & Set)
