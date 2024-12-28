@@ -16,3 +16,7 @@
 14. Data Structures II (Queue Imp, Stacks Imp)
 15. Data Structures III (HashTables Imp (Map, Set))
 16. Data Structures IV (Intro to Binary Trees & Heap Imp)
+
+---
+
+![certificate](certificate.png?raw=true "Certificate")
