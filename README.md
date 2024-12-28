@@ -17,7 +17,6 @@
 15. Data Structures III (HashTables Imp (Map, Set))
 16. Data Structures IV (Intro to Binary Trees & Heap Imp)
 
----
 # Certificate
 
 ![certificate](certificate.png?raw=true "Certificate")
