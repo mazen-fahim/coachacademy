@@ -1,37 +1,30 @@
-// Problem Link: https://codeforces.com/problemset/problem/343/B
+// problem link: https://codeforces.com/problemset/problem/343/B
 
 #include <iostream>
-#include <bits/stdc++.h>
+#include <stack>
 using namespace std;
 
+int main()
+{
+	string str;
+	stack<char> s;
 
-void fast_io(){
-	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
-}
+	cin >> str;
 
-int main(){
-	fast_io();
-	string s; cin >> s;
-	int sz = s.size();
+	int ss = str.size();
 
-	if(sz == 1){
-		cout << "No" << '\n';
-		return 0;
+	for (int i = 0; i < ss; i++)
+	{
+		if (s.empty() || s.top() != str[i])
+			s.push(str[i]);
+		else
+			s.pop();
 	}
 
+	if (s.empty())
+		cout << "Yes\n";
+	else
+		cout << "No\n";
 
-	for(int i = 0; i < sz/2; i++){
-		if(s[i] != s[sz-1-i]){
-			cout << "No" << '\n';
-			return 0;
-		}
-	}
-
-	if(sz&1 && s[sz/2+1] != s[sz/2]){
-		cout << "No" << '\n';
-		return 0;
-	}
-
-	cout << "Yes" << '\n';
 	return 0;
 }

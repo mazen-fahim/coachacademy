@@ -4,50 +4,76 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void fast_io(){
-	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+void fast_io()
+{
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
 }
 
-int main(){
+int main()
+{
 	fast_io();
-	int n; cin >> n;
+	int n;
+	vector<int> neg;
+	vector<int> pos;
+	vector<int> zero;
+	cin >> n;
 	vector<int> vec(n);
 
-	int zero = 0, neg = 0, pos = 0;
-	for(auto &x: vec) {
+	int negc = 0;
+	for (auto &x : vec)
+	{
 		cin >> x;
-		if(x==0)zero++;
-		else if(x < 0) neg++;
-		else pos++;
+		if (x == 0)
+			zero.push_back(x);
+		else if (x > 0)
+			pos.push_back(x);
+		negc += (x < 0);
 	}
 
-	vector<int> p;
-	vector<int> n;
-	vector<int> z;
-
-	bool f = true;
-	// if neg is odd
-	for(auto x: vec){
-		if(x == 0) z.push_back(0);
-		else if(x < 0){
-			if(n.empty())
-				n.push_back(x);
-			else if(neg&1){
-				p.push_back(x);
-			}
-			else{
-				if(f){ 
-					z.push_back(x);
-					f = false;
-				}
+	if (negc < 3)
+	{
+		for (int i = 0; i < n; i++)
+		{
+			if (vec[i] < 0)
+			{
+				if (neg.empty())
+					neg.push_back(vec[i]);
 				else
-					p.push_back(x);
+					zero.push_back(vec[i]);
 			}
 		}
-		else 
-			p.push_back(x);
+	}
+	else
+	{
+		for (int i = 0; i < n; i++)
+		{
+			if (vec[i] < 0)
+			{
+				if (neg.empty())
+					neg.push_back(vec[i]);
+				else if (pos.size() < 2)
+					pos.push_back(vec[i]);
+				else
+					zero.push_back(vec[i]);
+			}
+		}
 	}
 
-	return 0;
+	cout << neg.size() << " ";
+	for (auto x : neg)
+		cout << x << " ";
+	cout << endl;
 
+	cout << pos.size() << " ";
+	for (auto x : pos)
+		cout << x << " ";
+	cout << endl;
+
+	cout << zero.size() << " ";
+	for (auto x : zero)
+		cout << x << " ";
+	cout << endl;
+	return 0;
 }
