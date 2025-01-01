@@ -15,22 +15,31 @@ void fast_io()
 int main()
 {
   fast_io();
-  string s;
-  cin >> s;
-  int sz1 = s.size();
-  for (auto it = s.begin(); it != s.end(); it++)
+  int t;
+  cin >> t;
+  while (t--)
   {
-    if (*it == '0')
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    int prv = 0;
+
+    string ans = "";
+    for (auto c : s)
     {
-      s.erase(it);
-      break;
+      if ((c - '0') + 1 == prv)
+      {
+        ans += '0';
+        prv = c - '0';
+      }
+      else
+      {
+        ans += '1';
+        prv = c - '0' + 1;
+      }
     }
+    cout << ans << endl;
   }
-  int sz2 = s.size();
-  if (sz1 == sz2)
-  {
-    s.erase(s.begin());
-  }
-  cout << s << endl;
   return 0;
 }

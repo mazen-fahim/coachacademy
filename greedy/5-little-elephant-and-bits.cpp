@@ -17,14 +17,22 @@ int main()
   fast_io();
   string s;
   cin >> s;
+  bool f = false;
   for (auto it = s.begin(); it != s.end(); it++)
   {
     if (*it == '0')
     {
+      f = true;
       s.erase(it);
       break;
     }
   }
-  cout << s << endl;
+  if (f)
+    cout << s << endl;
+  else
+  {
+    s.erase(s.begin());
+    cout << s << endl;
+  }
   return 0;
 }
