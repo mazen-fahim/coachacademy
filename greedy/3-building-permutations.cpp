@@ -15,14 +15,14 @@ void fast_io()
 int main()
 {
   fast_io();
-  int n;
+  ll n;
   cin >> n;
-  vector<int> vec(n);
+  vector<ll> vec(n);
   for (auto &x : vec)
     cin >> x;
   sort(vec.begin(), vec.end());
-  int ans = 0;
-  for (int i = 0; i < n; i++)
+  ll ans = 0;
+  for (ll i = 0; i < n; i++)
   {
     ans += abs(vec[i] - (i + 1));
   }

@@ -1,48 +1,57 @@
-// Problem Link: https://codeforces.com/problemset/problem/1492/B
+// Problem Link: https://codeforces.com/problemset/problem/670/D1
 
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
-#define N = 1e6;
+#define N 1e6
+typedef long long ll;
 
-
-void fast_io(){
-	ios_base::sync_with_stdio(false); cin.tie(NULL); cout.tie(NULL);
+void fast_io()
+{
+  ios_base::sync_with_stdio(false);
+  cin.tie(NULL);
+  cout.tie(NULL);
 }
 
-
-
-int n, k;
-
-bool isOk(int nc, vector<int> &req, vector<int> &has){
-  int a = k;
-  for(int i = 0; i < n; i++){
-    if(req[i] * nc > has[i]) {
-      a -= req[i]*nc - has[i];
-      return !(a < 0);
+ll n, k;
+bool isOk(ll mid, vector<ll> &ing, vector<ll> &has)
+{
+  ll a = k;
+  for (int i = 0; i < n; i++)
+  {
+    if (ing[i] * mid > has[i])
+    {
+      if (ing[i] * mid > has[i] + a)
+        return false;
+      else
+        a -= (ing[i] * mid - has[i]);
     }
   }
   return true;
 }
 
-
-int main(){
-	fast_io();
+int main()
+{
+  fast_io();
   cin >> n >> k;
-  vector<int> req(n);
-  vector<int> has(n);
-  for(auto &x: req) cin >> x;
-  for(auto &x: has) cin >> x;
+  vector<ll> ing(n);
+  vector<ll> has(n);
+  for (auto &x : ing)
+    cin >> x;
+  for (auto &x : has)
+    cin >> x;
 
-  int lo = 0, hi = 2000;
-  while(lo < hi){
-    int nc = (lo + 1 + hi)/2;
-    if(isOk(nc, req, has))
-      lo = nc;
+  ll lo = 0, hi = 2e9 + 1, mid;
+  while (lo < hi)
+  {
+    mid = (lo + 1 + hi) / 2;
+    if (isOk(mid, ing, has))
+      lo = mid;
     else
-      hi = nc - 1;
+      hi = mid - 1;
   }
 
   cout << lo << endl;
-	return 0;
+
+  return 0;
 }
