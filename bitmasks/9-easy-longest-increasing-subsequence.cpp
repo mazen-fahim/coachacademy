@@ -1,4 +1,4 @@
-// problem link: https://codeforces.com/problemset/problem/476/B
+// problem link: https://www.spoj.com/problems/ELIS/en/
 #include <bits/stdc++.h>
 using namespace std;
 #define N 1e9

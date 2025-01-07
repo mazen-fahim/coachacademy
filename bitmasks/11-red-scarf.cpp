@@ -1,4 +1,4 @@
-// problem link: https://codeforces.com/problemset/problem/476/B
+// problem link: https://atcoder.jp/contests/abc171/tasks/abc171_e?lang=en
 #include <bits/stdc++.h>
 using namespace std;
 #define N 1e9

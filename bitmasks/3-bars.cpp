@@ -1,3 +1,4 @@
+// problem link: https://onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&problem=3886
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
@@ -24,12 +25,12 @@ int main()
       cin >> x;
 
     bool found = false;
-    for (int msk = 0; msk < 1 << 21; msk++)
+    for (int msk = 0; msk < (1 << p); msk++)
     {
       int s = 0;
-      for (int i = 0; i < 20; i++)
+      for (int i = 0; i < p; i++)
       {
-        if (msk & 1 << i)
+        if (msk & (1 << i))
         {
           s += vec[i];
         }

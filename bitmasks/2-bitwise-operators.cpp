@@ -1,3 +1,4 @@
+// problem link: https://www.codechef.com/problems/NXS2
 #include <iostream>
 #include <bits/stdc++.h>
 using namespace std;
